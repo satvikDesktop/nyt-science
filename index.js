@@ -1,19 +1,13 @@
 
 fetch('https://api.nytimes.com/svc/books/v3/lists/current/Science.json?api-key=7lX2YsoTsQMZaG1d795AdbbEOCBqi316')
-
-  .then((response) => {
-
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("NETWORK RESPONSE ERROR");
-    }
+.then(
+  (response)=>
+   response.json()
+  )
+  .then ((data) => {
+      display(data)
   })
-  .then(data => {
-
-    display(data)
-  })
-  .catch((error) => console.error("FETCH ERROR:", error));
+  .catch (err=>console.log(err))
 
 
 
@@ -53,11 +47,6 @@ function display(data) {
     document.getElementById('book-card').appendChild(rank) 
     document.getElementById('book-card').appendChild(img) 
     
-    
-    
-    
-    
-
     }
     
 }
